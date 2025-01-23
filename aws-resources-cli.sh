@@ -19,3 +19,13 @@ aws s3api put-bucket-encryption --bucket metrocjan222025 --server-side-encryptio
 #Create an IAM Role, Trust: EC2, Permission: ManagedPolicyARN: arn:aws:iam::aws:policy/AmazonEC2FullAccess
 
 IAM-Role-ARN:
+
+aws iam create-role \
+    --role-name EC2-Admin-Role2 \
+    --assume-role-policy-document file://tust-policy.json
+
+Role-ARN: arn:aws:iam::911167917923:role/EC2-Admin-Role2
+
+aws iam attach-role-policy \
+    --policy-arn arn:aws:iam::aws:policy/AmazonEC2FullAccess \
+    --role-name EC2-Admin-Role2
